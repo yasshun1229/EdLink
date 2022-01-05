@@ -47,11 +47,11 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
-#
+
 production:
-  <<: *default
+  adapter: postgresql
   encoding: unicode
   pool: 5
-  database: edlink_production
-  username: edlink
-  password: <%= ENV['EDMATCH_DATABASE_PASSWORD'] %>
+  database: message_board_production
+  username: message_board
+  password: <%= ENV['MESSAGE_BOARD_DATABASE_PASSWORD'] %>
