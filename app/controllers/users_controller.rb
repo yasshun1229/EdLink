@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show]
+  before_action :require_user_logged_in, only: [:show] # ログインしていなければダメ
   before_action :set_user, :only => [:show, :destroy]
   
   def index

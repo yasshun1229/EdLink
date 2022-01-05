@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :require_user_logged_in, only: [:new] # ログインしていなければダメ
+  before_action :require_user_logged_in, only: [:show, :new] # ログインしていなければダメ
   before_action :correct_user, only: [:edit, :update, :destroy] # 自分しかダメ
   # before_action :project_find, only [:show]
   
