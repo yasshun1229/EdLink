@@ -50,6 +50,8 @@ test:
 #
 production:
   <<: *default
-  database: edmatch_production
-  username: edmatch
+  encoding: unicode
+  pool: 5
+  database: edlink_production
+  username: edlink
   password: <%= ENV['EDMATCH_DATABASE_PASSWORD'] %>
