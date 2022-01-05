@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
-    @user = User.all
+    @user = User.find(params[:id])
   end
   
   def new
