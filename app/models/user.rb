@@ -9,9 +9,9 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   
-  # has_many :posts, :dependent => :destroy
-  # # 退会ユーザーに紐づくプロジェクトも削除する
-  # has_many :projects, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
+  # 退会ユーザーに紐づくプロジェクトも削除する
+  has_many :projects, :dependent => :destroy
     
   has_many :projects
 end
