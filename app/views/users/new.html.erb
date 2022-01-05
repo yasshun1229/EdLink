@@ -1,0 +1,47 @@
+<%= form_with(model: @user) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+<% end %>
+
+<div class="text-center">
+  <h1>新規登録</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @user) do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :name, '名称' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :email, 'Eメール' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :address, '所在地' %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :web_site, 'Webサイト' %>
+        <%= f.text_field :web_site, class: 'form-control' %>
+      </div>      
+
+      <div class="mb-3">
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password_confirmation, 'パスワード再確認' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '登録', class: 'btn btn-primary w-100' %>
+    <% end %>
+  </div>
+</div>

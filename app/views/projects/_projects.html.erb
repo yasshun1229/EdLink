@@ -1,0 +1,18 @@
+<% if projects.any? %>
+  <ul class="list-unstyled mt-2">
+    <% projects.each do |project| %>
+      <li class="d-flex">
+        <img class="rounded me-2 mb-5" src="<%= gravatar_url(project.user, { size: 64 }) %>" alt="">
+        <div>
+          <div>
+            <%= link_to project.user.name, user_path(project.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= project.created_at %></span>
+          </div>
+          <div>
+            <%= link_to project.project_name, project %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>

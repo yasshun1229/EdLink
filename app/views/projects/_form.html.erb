@@ -1,0 +1,28 @@
+<%= form_with(model: project) do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "プロジェクト作成に失敗しました") %></h2>
+
+      <ul>
+        <% project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table">
+    
+    <tr>
+      <td><%= f.label :project_name, "プロジェクト名" %></td>
+      <td><%= f.text_field :project_name %></td>
+    </tr>
+    
+    <tr>
+      <td><%= f.label :explanation, "説明" %></td>
+      <td><%= f.text_area :explanation, class: 'form-control', rows: 5 %></td>
+    </tr>
+  </table>
+  
+  <%= f.submit "作成", class: "btn btn-sm", style: "background-color: gray;" %>
+<% end %>
