@@ -20,7 +20,7 @@
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'アカウント削除', @user, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }  %></li>
+              <li class="dropdown-item"><%= link_to 'アカウント削除', user_path(current_user), method: :delete, data: { confirm: '本当に削除してよろしいですか？' }  %></li>
             </ul>
           </div>
         <% else %>
