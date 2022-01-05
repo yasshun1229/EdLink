@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # before_action :project_find, only [:show]
   
   def index
-    @projects = Project.all
+    @pagy, @projects = pagy(Project.order(id: :desc), items: 5)
   end
   
   def show

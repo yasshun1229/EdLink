@@ -2,10 +2,10 @@
   <ul class="list-unstyled mt-2">
     <% projects.each do |project| %>
       <li class="d-flex">
-        <img class="rounded me-2 mb-5" src="<%= gravatar_url(project.user, { size: 64 }) %>" alt="">
+        <img class="rounded me-2 mb-5" src="<%= gravatar_url(project.user, { size: 64 }) %>" alt="Gravatarのアイコン画像">
         <div>
           <div>
-            <%= link_to project.user.name, user_path(project.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= project.created_at %></span>
+            <%= link_to project.user.name, user_path(project.user), class: "text-decoration-none" %>
           </div>
           <div>
             <%= link_to project.project_name, project %>
