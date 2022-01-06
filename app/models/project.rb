@@ -5,7 +5,7 @@ class Project < ApplicationRecord
     validates :project_name
   end
   
-  with_options presence: true, length: { maximum: 255 } do # カラ禁止、255字以内
+  with_options presence: true, length: { maximum: 500 } do # カラ禁止、500字以内
     validates :explanation
   end
 end
