@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show] # ログインしていなければダメ
-  before_action :set_user, :only => [:show, :destroy]
-  
+  before_action :correct_user, only: [:destroy]
+
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 5)
   end
@@ -27,7 +27,6 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     
     flash[:success] = 'ユーザーを削除しました。'
@@ -40,7 +39,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :address, :password, :password_confirmation)
   end
   
-  def set_user
-     @user = User.find_by(:id => params[:id])
+  def correct_user
+    @user = current_user.find(id: params[:id])
+    unless @user
+      redirect_to root_url
+    end
   end
 end
